@@ -1,0 +1,1195 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
+
+
+
+
+/* General Reset */
+* {
+  font-family: "Noto Kufi Arabic", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: 400;
+  direction: ltr;
+}
+
+body {
+  /* background: black; */
+  background: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Special Style */
+/* Initial state for animation */
+.mughader_animate_on_scroll {
+  transform: translateY(0px);
+  transition: all 1s ease !important;
+}
+
+/* Intro Animation */
+.intro_animation {
+  transform: translateY(0);
+}
+
+/* Outro Animation */
+.outro_animation {
+  transform: translateY(50px);
+}
+
+/* Chatbot Icon */
+#mughader_chatbot_icon {
+  z-index: 999;
+  position: fixed;
+  bottom: 40px;
+  right: 0.3vmax;
+  background-color: transparent;
+  border-radius: 50%;
+  width: 5vmax;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#mughader_chatbot_icon img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+#mughader_chatbot_icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Chat Sidebar */
+#mughader_chat_sidebar {
+  z-index: 1000;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 80%;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+#mughader_chat_sidebar.active {
+  transform: translateX(0);
+}
+
+#mughader_chat_header {
+  direction: rtl;
+  background-color: #0078d7;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#mughader_chat_header h3 {
+  margin: 0;
+}
+
+#mughader_close_chat {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.2rem;
+  cursor: pointer;
+}
+
+.mughader_message_box {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+#mughader_chat_input {
+  direction: rtl;
+  padding: 10px 20px 20px 20px;
+  display: flex;
+  gap: 5px;
+  border-top: 1px solid #ddd;
+  /* Align button with expanding textarea */
+}
+
+#mughader_chat_input textarea {
+  direction: rtl;
+  width: 100%;
+  flex: 1;
+  padding: 0 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  resize: none;
+  min-height: 40px;
+  max-height: 150px;
+  overflow-y: auto;
+  font-size: 16px;
+  line-height: 1.3;
+  align-content: center;
+}
+
+#mughader_chat_input button {
+  padding: 0 2px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+#mughader_chat_input button:hover {
+  background-color: #005bb5;
+}
+
+/* Chat Messages */
+.chat {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.chat.message {
+  justify-content: flex-end;
+}
+
+.chat.response {
+  justify-content: flex-start;
+}
+
+.chat img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.chat span {
+  background-color: #e9ecef;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.chat.message span {
+  background-color: #0078d7;
+  color: white;
+  align-self: flex-end;
+}
+
+.chat.response span {
+  background-color: #e9ecef;
+  color: #333;
+  align-self: flex-start;
+}
+
+
+
+
+.whatsapp_icon_div {
+  z-index: 999;
+  position: fixed;
+  bottom: 40px;
+  left: 0.3vmax;
+  font-size: 1.5vmax;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background-color: #001328;
+  color: white;
+  border-radius: 30px;
+  padding: 3px 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add hover effect */
+.whatsapp_icon_div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling the ion-icon */
+.whatsapp_icon_div ion-icon {
+  font-size: 2.5vmax;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Header Styling */
+header {
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.mughader_header_container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+/* Logo */
+.mughader_header_logo {
+  width: 7rem;
+}
+
+/* Navigation Links (Desktop) */
+.mughader_desktop_nav {
+  display: flex;
+}
+
+.mughader_nav_links {
+  direction: rtl;
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+.mughader_nav_links a {
+  text-decoration: none;
+  color: black;
+  font-size: 0.9rem;
+  font-weight: bold;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.mughader_nav_links a:hover {
+  color: #007bff;
+}
+
+/* Mobile Menu Icon */
+.mughader_mobile_menu_icon {
+  color: black;
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Sidebar (Mobile) */
+.mughader_mobile_sidebar {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  transition: right 0.3s ease;
+}
+
+.mughader_mobile_sidebar ul {
+  list-style: none;
+  text-align: right;
+}
+
+.mughader_mobile_sidebar li {
+  margin: 2rem 3px 0.5rem 0;
+}
+
+.mughader_mobile_sidebar a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.mughader_mobile_sidebar a:hover {
+  color: #007bff;
+}
+
+/* Sidebar Overlay */
+.mughader_sidebar_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background */
+  z-index: 998;
+  /* Below sidebar but above other content */
+  opacity: 0;
+  /* Start fully transparent */
+  visibility: hidden;
+  /* Hide from view */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  /* Smooth transition */
+}
+
+/* Active Overlay */
+.mughader_sidebar_overlay.active {
+  opacity: 1;
+  /* Fully visible */
+  visibility: visible;
+  /* Make it interactable */
+}
+
+
+/* Close Icon */
+.mughader_mobile_sidebar .mughader_close_icon {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.mughader_mobile_sidebar .mughader_close_icon:hover {
+  color: #ff4d4d;
+  /* Highlighted color on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Section Styling */
+.wow_effect_section {
+  position: relative;
+  height: 45vh;
+  width: 100%;
+  background-image: linear-gradient(120deg, #1e3c72, #2a5298), url('path/to/your-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Overlay */
+.wow_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  /* Slightly darker overlay for text visibility */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Text Container */
+.wow_text_container {
+  width: 100vw;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  z-index: 2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* Glass Box Effect */
+.wow_glass_box {
+  width: 70vw;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.15);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+/* Title Styling */
+.wow_title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #f8f9fa;
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtitle Styling */
+.wow_subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #f0f0f0;
+}
+
+/* Location Icon Styling */
+.wow_location_icon {
+  margin-left: 10px;
+  font-size: 2rem;
+  /* Adjust size */
+  color: #ff5722;
+  /* Vibrant color for visibility */
+  text-decoration: none;
+  /* Remove underline */
+  transition: color 0.3s ease, transform 0.2s ease;
+  /* Add hover effect */
+  display: inline-block;
+  /* Ensures proper spacing */
+  vertical-align: middle;
+  /* Aligns with text */
+}
+
+.wow_location_icon:hover {
+  color: #ff9800;
+  /* Change color on hover */
+  transform: scale(1.2);
+  /* Slight zoom for effect */
+}
+
+/* Dynamic Text Container */
+.wow_dynamic_text {
+  position: relative;
+  margin-top: 20px;
+}
+
+/* Dynamic Word */
+.wow_dynamic_word {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
+  text-transform: uppercase;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  color: #ffeb3b;
+  text-shadow: 0px 4px 10px rgba(255, 235, 59, 0.5);
+}
+
+.wow_dynamic_word.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Timer Line */
+.wow_timer_line {
+  height: 4px;
+  background: linear-gradient(90deg, #ff5722, #ff9800);
+  width: 0;
+  margin-top: 10px;
+  border-radius: 2px;
+  transition: width 1.8s linear;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Section Styling */
+#scrollable_cards_section_id {
+  padding: 20px;
+  background-color: #f8f9fa;
+  /* Light background color */
+}
+
+/* Title Styling */
+.scrollable_section_title {
+  background: #00b6d6;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: right;
+  margin-bottom: 15px;
+  color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 10px 5px 10px 0;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+}
+
+/* Scrollable Row */
+.scrollable_cards_row {
+  direction: rtl;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #007BFF #e0e0e0;
+}
+
+/* Custom Scrollbar (Webkit) */
+.scrollable_cards_row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrollable_cards_row::-webkit-scrollbar-thumb {
+  background-color: #007BFF;
+  border-radius: 10px;
+}
+
+.scrollable_cards_row::-webkit-scrollbar-track {
+  background-color: #e0e0e0;
+}
+
+/* Individual Card Styling */
+.scrollable_card {
+  width: 20vw;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrollable_card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.scrollable_card img:hover {
+  transform: scale(1.05);
+}
+
+.scrollable_cards_container {
+  margin-bottom: 4vmax;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollable_cards_container+.scrollable_cards_container {
+  margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Full-Screen Container */
+.full_screen_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+}
+
+.full_screen_container.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* Exit Button */
+.exit_button {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s ease;
+  align-self: flex-end;
+  width: auto;
+}
+
+.exit_button:hover {
+  background: #ff3333;
+}
+
+/* Title */
+.full_screen_title {
+  font-size: 22px;
+  margin: 0;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Full-Screen Image */
+.full_screen_image {
+  background: transparent;
+  max-width: 80vw;
+  max-height: 60%;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+/* WhatsApp Button */
+.whatsapp_button {
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease;
+  width: 100%;
+  text-align: center;
+}
+
+.whatsapp_button:hover {
+  background: #20c357;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fourth Section Style */
+.mughader_last_section {
+  background: linear-gradient(90deg, #00172e, #003c78);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mughader_last_section * {
+  color: white;
+  direction: rtl;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Email Subscription Section */
+.enter_your_email_for_our_news_div {
+  margin-top: 20px;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100vw;
+}
+
+/* Call to Action Text */
+.enter_your_email_for_our_news_div .cta_text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* Email Subscription Form */
+.email_subscription_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Input Field */
+.email_subscription_form input {
+  width: 70%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s ease;
+  color: #003c78;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.email_subscription_form input::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.email_subscription_form input:focus {
+  border-color: #00bcd4;
+  box-shadow: 0px 0px 8px rgba(0, 188, 212, 0.8);
+}
+
+/* Submit Button */
+.email_subscription_form button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(90deg, #00bcd4, #0066cc);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.email_subscription_form button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Customers Comments Section */
+#customers_comments_section_id {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  scroll-behavior: smooth;
+}
+
+#customers_comments_section_id::-webkit-scrollbar {
+  height: 10px;
+}
+
+#customers_comments_section_id::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+#customers_comments_section_id::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.comment-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+  max-width: 200px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.profile-picture {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.person-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.comment-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: #f1c40f;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer Style */
+footer {
+  background: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer img {
+  width: 6rem;
+}
+
+footer * {
+  color: black;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+
+
+
+/* For Laptop Screen Size */
+@media (min-width: 1024px) {
+  .full_screen_container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+  }
+
+  .full_screen_image {
+    max-width: 70vw;
+    max-height: 70vh;
+    margin-bottom: 20px;
+  }
+
+  .whatsapp_button {
+    width: auto;
+    max-width: 300px;
+    margin-top: 20px;
+  }
+}
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mughader_desktop_nav {
+    display: none;
+    /* Hide desktop navigation */
+  }
+
+  .mughader_mobile_menu_icon {
+    display: block;
+    /* Show mobile menu icon */
+  }
+
+
+
+
+
+
+
+  /* Chat Sidebar */
+  #mughader_chat_sidebar {
+    width: 100vw;
+  }
+
+  /* Chatbot Icon */
+  #mughader_chatbot_icon {
+    width: 7.5vmax;
+  }
+
+
+
+
+
+  /* WhatsApp Code */
+  .whatsapp_icon_div {
+    font-size: 1rem;
+  }
+
+  .whatsapp_icon_div ion-icon {
+    font-size: 1.5rem;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  .full_screen_container {
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .exit_button,
+  .full_screen_title,
+  .full_screen_image,
+  .whatsapp_button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .full_screen_image {
+    max-width: 90%;
+    max-height: 50vh;
+  }
+
+  .exit_button {
+    margin-bottom: 10px;
+  }
+
+
+
+
+
+
+
+
+  .mughader_last_section * {
+    font-size: 0.8rem;
+  }
+
+
+
+
+
+
+
+
+
+
+  footer * {
+    font-size: 0.6rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .email_subscription_form input {
+    width: 100%;
+  }
+
+  .email_subscription_form {
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 400px) {
+  .mughader_header_container {
+    justify-content: space-between;
+  }
+
+  /* Logo */
+  .mughader_header_logo {
+    width: 4.5rem;
+  }
+
+
+
+
+
+
+
+  /* WHatsapp Code */
+  .whatsapp_icon_div {
+    font-size: 0.8rem;
+  }
+
+  .whatsapp_icon_div ion-icon {
+    font-size: 1rem;
+  }
+
+
+
+
+
+
+
+
+  /* Ai Bot Code */
+  #mughader_chatbot_icon {
+    width: 8vmax;
+  }
+
+  #mughader_close_chat {
+    font-size: 1.5rem;
+  }
+
+  #mughader_chat_input {
+    padding: 5px;
+  }
+
+  #mughader_chat_input button {
+    font-size: 0.9rem;
+  }
+
+
+
+
+
+
+
+
+
+  /* Title */
+  .full_screen_title {
+    margin-bottom: 0;
+  }
+
+
+
+
+
+
+
+
+
+
+  .mughader_last_section * {
+    font-size: 0.6rem;
+  }
+}
