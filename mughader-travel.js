@@ -393,7 +393,7 @@ function openFullScreenImage(src) {
     whatsappButton.href = 'https://wa.me/your-number'; // Replace 'your-number' with your WhatsApp number
     whatsappButton.target = '_blank';
     whatsappButton.className = 'whatsapp_button';
-    whatsappButton.innerText = 'تواصل معنا';
+    whatsappButton.innerText = 'إحجز هذا العرض';
     fullScreenDiv.appendChild(whatsappButton);
 
     // Close on background click
