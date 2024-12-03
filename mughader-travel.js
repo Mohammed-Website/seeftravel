@@ -327,126 +327,134 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// Function to dynamically create the section
-function createScrollableCardsSection(dataArray) {
-    const section = document.getElementById("scrollable_cards_section_id");
-
-    dataArray.forEach((data) => {
-        const container = document.createElement('div');
-        container.className = 'scrollable_cards_container';
-
-        // Create the title
-        const title = document.createElement('h2');
-        title.className = 'scrollable_section_title';
-        title.innerText = data.title;
-        container.appendChild(title);
-
-        // Create the scrollable row
-        const scrollableRow = document.createElement('div');
-        scrollableRow.className = 'scrollable_cards_row';
-
-        // Loop through the images and create cards
-        data.images.forEach((src) => {
-            const card = document.createElement('div');
-            card.className = 'scrollable_card';
-
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = 'Image';
-            img.addEventListener('click', () => openFullScreenImage(src)); // Add click event for full-screen mode
-            card.appendChild(img);
-
-            scrollableRow.appendChild(card);
-        });
-
-        container.appendChild(scrollableRow);
-        section.appendChild(container);
-    });
-}
-
-function openFullScreenImage(src) {
-    const fullScreenDiv = document.createElement('div');
-    fullScreenDiv.className = 'full_screen_container';
-
-    // Add animation class for fade-in effect
-    setTimeout(() => fullScreenDiv.classList.add('visible'), 10);
-
-    const exitButton = document.createElement('button');
-    exitButton.innerText = 'عودة';
-    exitButton.className = 'exit_button';
-    exitButton.addEventListener('click', closeFullScreenImage);
-    fullScreenDiv.appendChild(exitButton);
-
-    const title = document.createElement('h2');
-    title.innerText = 'صور الشاشة وأرسلنا على الواتس';
-    title.className = 'full_screen_title';
-    fullScreenDiv.appendChild(title);
-
-    // Full-screen image
-    const fullScreenImage = document.createElement('img');
-    fullScreenImage.src = src;
-    fullScreenImage.className = 'full_screen_image';
-    fullScreenDiv.appendChild(fullScreenImage);
-
-    // WhatsApp button
-    const whatsappButton = document.createElement('a');
-    whatsappButton.href = 'https://wa.me/your-number'; // Replace 'your-number' with your WhatsApp number
-    whatsappButton.target = '_blank';
-    whatsappButton.className = 'whatsapp_button';
-    whatsappButton.innerText = 'إحجز هذا العرض';
-    fullScreenDiv.appendChild(whatsappButton);
-
-    // Close on background click
-    fullScreenDiv.addEventListener('click', (e) => {
-        if (e.target === fullScreenDiv) closeFullScreenImage();
-    });
-
-    document.body.appendChild(fullScreenDiv);
-
-    // Smooth close function
-    function closeFullScreenImage() {
-        fullScreenDiv.classList.remove('visible'); // Trigger fade-out
-        setTimeout(() => fullScreenDiv.remove(), 300); // Remove element after fade-out
-    }
-}
-
-// Sample data array
-const sectionData = [
+let mughader_commentsArray = [
     {
-        title: 'رحلات تايلاند',
-        images: [
-            'مكتب-سياحي-بحريني/تايلاند/2.jpg',
-            'مكتب-سياحي-بحريني/تايلاند/3.jpg',
-        ],
+        profileImage: "https://mughader.com/مكتب-للسفر-والسياحة/مكتب-للسفر-والسياحة-1.png",
+        personName: "م.ثامر الغنيمي",
+        comment: "شكراً لكم على خدمتكم الجميلة وتعاملكم الاحترافي وبرامجكم المرنة.. 👍🏻",
+        stars: 5
     },
-
     {
-        title: 'رحلات تيلاند + فيتنام',
-        images: [
-            'مكتب-سياحي-بحريني/تايلاند/1.jpg',
-        ],
+        profileLetter: "H",
+        personName: "Hh Oo",
+        comment: "شركة محترمة وصادقة ومرضية للعميل وتقدم خدمات مميزة واسعار مناسبة وخدمات مختلفة.",
+        stars: 5
     },
-
-
     {
-        title: 'رحلات ماليزيا',
-        images: [
-            'مكتب-سياحي-بحريني/ماليزيا/1.jpg',
-            'مكتب-سياحي-بحريني/ماليزيا/1.jpg',
-        ],
+        profileLetter: "E",
+        personName: "Emanoo Emee",
+        comment: "والله الخدمه جدا رائعه و موفره جميع سبل الراحه و الرفاهيه من خدمة حجوزات الفنادق و السائق الخاص خلال الرحله و تنظيم جداول يوميه للرحلات و توفير خدمة مترجم و المطاعم و جميع الاماكن السياحيه عمل جدا عظيم و جبار و السعر كان جدا مناسب شكرا جزيلا 🙏🏻🌹.",
+        stars: 5
     },
-
-
     {
-        title: 'رحلات سنغافورة + تايلاند',
-        images: [
-            'مكتب-سياحي-بحريني/سنغافورة/1.jpg',
-        ],
+        profileLetter: "D",
+        personName: "Dal8800 دال للعقارات",
+        comment: "شكرا مغادرعلى اتقانكم  بالعمل وعلى خدمتكم الجميله بارك الله فيكم وفي جهودكم الى الاعلى بإذن",
+        stars: 5
+    },
+    {
+        profileImage: "https://mughader.com/مكتب-للسفر-والسياحة/مكتب-للسفر-والسياحة-3.png",
+        personName: "ناصر الهزاع",
+        comment: "اشكر طاقم شركة السيف على تعاملهم معي يستاهلو كل خير ♥️♥️",
+        stars: 5
+    },
+    {
+        profileLetter: "F",
+        personName: "Fahad Fahad",
+        comment: "خدمه خمس نجوم فعلياً من الاستقبال الى التوديع شكراً لاتفي حقكم ❤️",
+        stars: 5
+    },
+    {
+        profileLetter: "ح",
+        personName: "حامد العنزي",
+        comment: "من أرقى الشركات تعامل وصدق ودقة ويهمهم راحت السائح بأدق التفاصيل وعلى تواصل مباشر مع السائح يوميا حتى العودة",
+        stars: 5
+    },
+    {
+        profileImage: "https://mughader.com/مكتب-للسفر-والسياحة/مكتب-للسفر-والسياحة-2.png",
+        personName: "FAISAL ALHAMED",
+        comment: "من افضل وكالات السفر التي تتميز بتقديم خدمات فريدة من نوعها لا يمكن ان تجدها في غيرها من الوكالات",
+        stars: 5
+    },
+    {
+        profileLetter: "ن",
+        personName: "ناصر الموسى",
+        comment: "نشكر وكاله مغادر على جهوده وتمنى له دائم التوفيق و والــــنــــجـــــاح",
+        stars: 5
+    },
+    {
+        profileLetter: "H",
+        personName: "Hala Abdullah",
+        comment: "من افضل واحسن الي تعاملت معهم للامانة ولا غلطة والاسعار حلوه جدا ومعقولة مرا شككككرا  شركة مغادر للسياحة 💛🙏🏻",
+        stars: 5
+    },
+    {
+        profileLetter: "س",
+        personName: "سامي الموسى",
+        comment: "صراحه مجهود يشكر عليه من وكالة مغادر للسفر والسياحة ومن افضل الشركات الي حريصه علئ ادق التفاصيل شركه تلبي جميع احتيجاتك وعن تجربه اتكلم صراحه تعاملهم جدا راقي بجميع الاماكن والاوقات ❤️❤️",
+        stars: 5
     },
 ];
 
-// Call the function with the sample data
-createScrollableCardsSection(sectionData);
+// Array of vibrant colors
+let mughader_profileColors = ["#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#FFC300", "#33FFF2"];
+
+function mughader_generateComments(comments) {
+    let commentsSection = document.getElementById("mughader_customers_comments_section_id");
+
+    comments.forEach(({ profileLetter, profileImage, personName, comment, stars }, index) => {
+        // Create the main comment card
+        let commentCard = document.createElement("div");
+        commentCard.className = "mughader_comment_card";
+
+        // Create the profile picture element
+        let profilePicture = document.createElement("div");
+        profilePicture.className = "mughader_profile_picture";
+
+        if (profileImage) {
+            // Use an image if profileImage is provided
+            let img = document.createElement("img");
+            img.src = profileImage;
+            img.alt = `مكتب سياحي - شركة مغادر`;
+            img.title = `مكتب سياحي - شركة مغادر`;
+            profilePicture.appendChild(img);
+        } else if (profileLetter) {
+            // Use the profile letter if no image is provided
+            profilePicture.textContent = profileLetter;
+
+            // Assign a vibrant color to the profile picture
+            let colorIndex = index % mughader_profileColors.length; // Cycle through the colors
+            profilePicture.style.backgroundColor = mughader_profileColors[colorIndex];
+        }
+
+        // Create the person's name
+        let personNameElement = document.createElement("div");
+        personNameElement.className = "mughader_person_name";
+        personNameElement.textContent = personName;
+
+        // Create the comment text
+        let commentText = document.createElement("div");
+        commentText.className = "mughader_comment_text";
+        commentText.textContent = comment;
+
+        // Create the stars
+        let starsElement = document.createElement("div");
+        starsElement.className = "mughader_stars";
+        starsElement.textContent = "★".repeat(stars);
+
+        // Append all elements to the comment card
+        commentCard.appendChild(profilePicture);
+        commentCard.appendChild(personNameElement);
+        commentCard.appendChild(commentText);
+        commentCard.appendChild(starsElement);
+
+        // Append the comment card to the section
+        commentsSection.appendChild(commentCard);
+    });
+}
+
+// Call the function to populate comments
+mughader_generateComments(mughader_commentsArray);
 
 
 
@@ -614,14 +622,3 @@ openWhatsAppNumber = function () {
 
 
 
-// Create and append script for 'Ionicons' Website Icons (Module Script)
-let ioniconsModuleScript = document.createElement('script');
-ioniconsModuleScript.type = 'module';
-ioniconsModuleScript.src = 'https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js';
-document.body.appendChild(ioniconsModuleScript);
-
-// Create and append script for 'Ionicons' Website Icons (Module Script)
-let ioniconsNomoduleScript = document.createElement('script');
-ioniconsNomoduleScript.setAttribute('nomodule', '');
-ioniconsNomoduleScript.src = 'https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js';
-document.body.appendChild(ioniconsNomoduleScript);

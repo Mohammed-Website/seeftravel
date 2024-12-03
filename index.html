@@ -61,6 +61,11 @@
 
     <meta name="author" content="وكالة مغادر" />
     <title>مكتب سياحي - مكتب سياحي سعودي - وكالة مغادر</title>
+
+    <!-- ionicons Library -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
     <link rel="stylesheet" href="mughader-travel.css" />
 
     <meta name="description"
@@ -173,37 +178,6 @@
 
 
 
-    <!-- Sidebar Overlay -->
-    <div id="mughader_chat_overlay" class="mughader_sidebar_overlay"></div>
-
-
-    <!-- Chatbot Icon -->
-    <div id="mughader_chatbot_icon">
-        <img src="مكتب-سياحي/مكتب-سياحي-ذكاء-اصطناعي.jpg" alt="مكتب سياحي - مغادر">
-    </div>
-
-    <!-- Chat Sidebar -->
-    <div id="mughader_chat_sidebar">
-        <div id="mughader_chat_header">
-            <h3>تحدث معنا</h3>
-            <button id="mughader_close_chat">&times;</button>
-        </div>
-        <div class="mughader_message_box"></div>
-        <div id="mughader_chat_input">
-            <textarea id="mughader_message_bar" class="mughader_dynamic_direction_input_class"
-                placeholder="أكتب هنا"></textarea>
-            <button id="mughader_send_btn">إرسال</button>
-        </div>
-    </div>
-
-
-    <!-- WhatsApp Code -->
-    <div class="whatsapp_icon_div" onclick="openWhatsAppNumber()">
-        <ion-icon name="logo-whatsapp"></ion-icon>
-        <p>للحجز والإستفسار</p>
-    </div>
-
-
 
 
 
@@ -298,9 +272,59 @@
 
 
 
-    <section id="customers_comments_section_id">
-        <!-- Dynamic JS Code -->
+    <!-- Custormers Comments -->
+    <section class="mughader_customers_comments_section">
+
+        <h6 class="mughader_animate_on_scroll">أراء عملائنا</h6>
+
+        <div id="mughader_customers_comments_section_id">
+
+        </div>
+
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Sidebar Overlay -->
+    <div id="mughader_chat_overlay" class="mughader_sidebar_overlay"></div>
+
+
+    <!-- Chatbot Icon -->
+    <div id="mughader_chatbot_icon">
+        <img src="مكتب-سياحي/مكتب-سياحي-ذكاء-اصطناعي.jpg" alt="مكتب سياحي - شركة مغادر" title="مكتب سياحي - شركة مغادر"
+            class="no_full_screen_image">
+    </div>
+
+    <!-- Chat Sidebar -->
+    <div id="mughader_chat_sidebar">
+        <div id="mughader_chat_header">
+            <h3>تحدث معنا</h3>
+            <button id="mughader_close_chat">&times;</button>
+        </div>
+        <div class="mughader_message_box"></div>
+        <div id="mughader_chat_input">
+            <textarea id="mughader_message_bar" class="mughader_dynamic_direction_input_class"
+                placeholder="أكتب هنا"></textarea>
+            <button id="mughader_send_btn">إرسال</button>
+        </div>
+    </div>
+
+
+    <!-- WhatsApp Code -->
+    <div class="whatsapp_icon_div" onclick="openWhatsAppNumber()">
+        <ion-icon name="logo-whatsapp"></ion-icon>
+        <p>للحجز والإستفسار</p>
+    </div>
 
 
 
