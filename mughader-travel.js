@@ -325,8 +325,140 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+// Sample data array
+const sectionData = [
+    {
+        title: 'رحلات تايلاند',
+        image_1: ['مكتب-سياحي-بحريني/عروض-تايلاند/عرض-تايلاند-1.jpg', 'الرحلات الفردية'],
+        image_2: ['مكتب-سياحي-بحريني/عروض-تايلاند/عرض-تايلاند-2.jpg', 'رحلات جماعية - إجازة منتصف الفصل السعودي'],
+    },
+
+    {
+        title: 'رحلات تيلاند + فيتنام',
+        image_1: ['مكتب-سياحي-بحريني/عروض-تايلاند-فيتنام/عرض-تايلاند-فيتنام-1.jpg', 'عروض الشتاء'],
+    },
 
 
+    {
+        title: 'رحلات ماليزيا',
+        image_1: ['مكتب-سياحي-بحريني/عروض-ماليزيا/عرض-ماليزيا-1.jpg', 'رحلات جماعية - إجازة منتصف الفصل السعودي'],
+        image_2: ['مكتب-سياحي-بحريني/عروض-ماليزيا/عرض-ماليزيا-2.jpg', 'عروض الشتاء'],
+    },
+
+
+    {
+        title: 'رحلات سنغافورة + تايلاند',
+        image_1: ['مكتب-سياحي-بحريني/عروض-سنغافورة/عرض-سنغافورة-1.jpg', 'عروض الشتاء'],
+    },
+];
+
+
+// Function to dynamically create the section
+function createScrollableCardsSection(dataArray) {
+    const section = document.getElementById("scrollable_cards_section_id");
+
+    dataArray.forEach((data) => {
+        const container = document.createElement('div');
+        container.className = 'scrollable_cards_container';
+
+        // Create the title
+        const title = document.createElement('h2');
+        title.className = 'scrollable_section_title';
+        title.innerText = data.title;
+        container.appendChild(title);
+
+        // Create the scrollable row
+        const scrollableRow = document.createElement('div');
+        scrollableRow.className = 'scrollable_cards_row';
+
+        // Loop through the images and create cards
+        Object.keys(data).forEach((key) => {
+            if (key.startsWith('image_')) {
+                const [src, text] = data[key];
+
+                const card = document.createElement('div');
+                card.className = 'scrollable_card';
+
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = text;
+                img.addEventListener('click', () => openFullScreenImage(src, text)); // Pass text to full-screen function
+                card.appendChild(img);
+
+                scrollableRow.appendChild(card);
+            }
+        });
+
+        container.appendChild(scrollableRow);
+        section.appendChild(container);
+    });
+}
+
+function openFullScreenImage(src, text) {
+    const fullScreenDiv = document.createElement('div');
+    fullScreenDiv.className = 'full_screen_container';
+
+    // Add animation class for fade-in effect
+    setTimeout(() => fullScreenDiv.classList.add('visible'), 10);
+
+    const exitButton = document.createElement('button');
+    exitButton.innerText = 'عودة';
+    exitButton.className = 'exit_button';
+    exitButton.addEventListener('click', closeFullScreenImage);
+    fullScreenDiv.appendChild(exitButton);
+
+    const title = document.createElement('h2');
+    title.innerText = text;
+    title.className = 'full_screen_title';
+    fullScreenDiv.appendChild(title);
+
+    // Full-screen image
+    const fullScreenImage = document.createElement('img');
+    fullScreenImage.src = src;
+    fullScreenImage.className = 'full_screen_image';
+    fullScreenDiv.appendChild(fullScreenImage);
+
+    // WhatsApp button
+    const whatsappButton = document.createElement('a');
+    whatsappButton.className = 'whatsapp_button';
+    whatsappButton.innerText = 'إرسال هذا العرض';
+    whatsappButton.href = `https://wa.me/+6282210081028?text=طلب%20حجز%20هذا%20العرض:%0Ahttps://mohammed-website.github.io/seeftravel/${encodeURIComponent(src)}`;
+    fullScreenDiv.appendChild(whatsappButton);
+
+    // Close on background click
+    fullScreenDiv.addEventListener('click', (e) => {
+        if (e.target === fullScreenDiv) closeFullScreenImage();
+    });
+
+    document.body.appendChild(fullScreenDiv);
+
+    // Smooth close function
+    function closeFullScreenImage() {
+        fullScreenDiv.classList.remove('visible'); // Trigger fade-out
+        setTimeout(() => fullScreenDiv.remove(), 300); // Remove element after fade-out
+    }
+}
+
+// Call the function with the sample data
+createScrollableCardsSection(sectionData);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Create Comments Section */
 let mughader_commentsArray = [
     {
         profileImage: "https://mughader.com/مكتب-للسفر-والسياحة/مكتب-للسفر-والسياحة-1.png",
@@ -471,92 +603,6 @@ mughader_generateComments(mughader_commentsArray);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-const commentsArray = [
-    {
-        profileLetter: "ن",
-        personName: "Alice Smith",
-        comment: "Amazing service, highly recommend!",
-        stars: 5
-    },
-    {
-        profileLetter: "J",
-        personName: "John Doe",
-        comment: "Loved the experience, will come back again.",
-        stars: 4
-    },
-    {
-        profileLetter: "M",
-        personName: "Mary Johnson",
-        comment: "Good quality but room for improvement.",
-        stars: 3
-    },
-    {
-        profileLetter: "R",
-        personName: "Robert Brown",
-        comment: "Exceptional customer service, truly satisfied!",
-        stars: 5
-    }
-];
-
-// Array of vibrant colors
-const profileColors = ["#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#FFC300", "#33FFF2"];
-
-function generateComments(comments) {
-    const commentsSection = document.getElementById("customers_comments_section_id");
-
-    comments.forEach(({ profileLetter, personName, comment, stars }, index) => {
-        // Create the main comment card
-        const commentCard = document.createElement("div");
-        commentCard.className = "comment-card";
-
-        // Create the profile picture
-        const profilePicture = document.createElement("div");
-        profilePicture.className = "profile-picture";
-        profilePicture.textContent = profileLetter;
-
-        // Assign a vibrant color to the profile picture
-        const colorIndex = index % profileColors.length; // Cycle through the colors
-        profilePicture.style.backgroundColor = profileColors[colorIndex];
-
-        // Create the person's name
-        const personNameElement = document.createElement("div");
-        personNameElement.className = "person-name";
-        personNameElement.textContent = personName;
-
-        // Create the comment text
-        const commentText = document.createElement("div");
-        commentText.className = "comment-text";
-        commentText.textContent = comment;
-
-        // Create the stars
-        const starsElement = document.createElement("div");
-        starsElement.className = "stars";
-        starsElement.textContent = "★".repeat(stars);
-
-        // Append all elements to the comment card
-        commentCard.appendChild(profilePicture);
-        commentCard.appendChild(personNameElement);
-        commentCard.appendChild(commentText);
-        commentCard.appendChild(starsElement);
-
-        // Append the comment card to the section
-        commentsSection.appendChild(commentCard);
-    });
-}
-
-// Call the function to populate comments
-generateComments(commentsArray);
 
 
 
