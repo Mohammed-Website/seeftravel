@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let botResponse = `
                 <div class="chat response">
-                    <img src="مكتب-سياحي/مكتب-سياحي-حائل.jpg">
+                    <img src="https://mohammed-website.github.io/seeftravel/%D9%85%D9%83%D8%AA%D8%A8-%D8%B3%D9%8A%D8%A7%D8%AD%D9%8A/%D9%85%D9%83%D8%AA%D8%A8-%D8%B3%D9%8A%D8%A7%D8%AD%D9%8A-%D8%A8%D8%AD%D8%B1%D9%8A%D9%86%D9%8A.png">
                     <span class="new">...</span>
                 </div>
             `;
