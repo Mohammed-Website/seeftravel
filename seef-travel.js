@@ -398,6 +398,12 @@ function createScrollableCardsSection(dataArray) {
 }
 
 function openFullScreenImage(src, text) {
+
+    // Disable document scrolling
+    document.body.style.overflow = 'hidden';
+
+
+    /* Create the sull screen container div */
     const fullScreenDiv = document.createElement('div');
     fullScreenDiv.className = 'full_screen_container';
 
@@ -439,6 +445,9 @@ function openFullScreenImage(src, text) {
     function closeFullScreenImage() {
         fullScreenDiv.classList.remove('visible'); // Trigger fade-out
         setTimeout(() => fullScreenDiv.remove(), 300); // Remove element after fade-out
+
+        
+        document.body.style.overflow = ''; // Re-enable document scrolling
     }
 }
 
@@ -661,7 +670,7 @@ function insertNewClick(columnName) {
 /* Open WhatsApp */
 openWhatsAppNumber = function () {
 
-    insertNewClick('alseef');
+    insertNewClick('alseef.com');
 
     const whatsappNumber = "+97337111535";
     const message = encodeURIComponent('سلام عليكم ورحمة الله وبركاته'); // Optional pre-filled message
