@@ -54,7 +54,7 @@ body {
   right: 0.3vmax;
   background-color: transparent;
   border-radius: 50%;
-  width: 5vmax;
+  width: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -209,11 +209,12 @@ body {
 
 
 .whatsapp_icon_div {
+  direction: ltr;
   z-index: 999;
   position: fixed;
   bottom: 40px;
   left: 0.3vmax;
-  font-size: 1.5vmax;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   gap: 3px;
@@ -234,7 +235,7 @@ body {
 
 /* Styling the ion-icon */
 .whatsapp_icon_div ion-icon {
-  font-size: 2.5vmax;
+  font-size: 2.5rem;
   color: white;
 }
 
@@ -418,7 +419,6 @@ header {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
-  /* Slightly darker overlay for text visibility */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -430,7 +430,6 @@ header {
   width: 100vw;
   color: #fff;
   text-align: center;
-  padding: 20px;
   z-index: 2;
   position: relative;
   display: flex;
@@ -451,7 +450,7 @@ header {
 
 /* Title Styling */
 .wow_title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
   color: #f8f9fa;
@@ -460,8 +459,8 @@ header {
 
 /* Subtitle Styling */
 .wow_subtitle {
+  direction: ltr;
   font-size: 1.5rem;
-  margin-bottom: 10px;
   color: #f0f0f0;
 }
 
@@ -469,30 +468,22 @@ header {
 .wow_location_icon {
   margin-left: 10px;
   font-size: 2rem;
-  /* Adjust size */
   color: #ff5722;
-  /* Vibrant color for visibility */
   text-decoration: none;
-  /* Remove underline */
   transition: color 0.3s ease, transform 0.2s ease;
-  /* Add hover effect */
   display: inline-block;
-  /* Ensures proper spacing */
   vertical-align: middle;
-  /* Aligns with text */
 }
 
 .wow_location_icon:hover {
   color: #ff9800;
-  /* Change color on hover */
   transform: scale(1.2);
-  /* Slight zoom for effect */
 }
 
 /* Dynamic Text Container */
 .wow_dynamic_text {
   position: relative;
-  margin-top: 20px;
+  margin-top: 0.5vmax;
 }
 
 /* Dynamic Word */
@@ -566,7 +557,6 @@ header {
 #scrollable_cards_section_id {
   padding: 20px;
   background-color: #f8f9fa;
-  /* Light background color */
 }
 
 /* Title Styling */
@@ -612,7 +602,7 @@ header {
 
 /* Individual Card Styling */
 .scrollable_card {
-  width: 20vw;
+  width: 20rem;
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -818,7 +808,7 @@ header {
 }
 
 /* Call to Action Text */
-.enter_your_email_for_our_news_div .cta_text {
+.cta_text {
   font-size: 1.2rem;
   font-weight: bold;
   color: #ffffff;
@@ -837,7 +827,6 @@ header {
 /* Input Field */
 .email_subscription_form input {
   width: 70%;
-  max-width: 400px;
   padding: 10px 15px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 25px;
@@ -1075,6 +1064,110 @@ footer * {
 
 
 /* Responsive Design */
+@media (max-width: 950px) {
+  .wow_glass_box {
+    width: 90vw;
+    padding: 10px 2px;
+  }
+
+  .wow_title {
+    font-size: 3.8vw;
+  }
+
+
+
+
+
+
+
+
+  /* Offer Cards Section */
+  #scrollable_cards_section_id {
+    padding: 5px 2px;
+    background-color: #f8f9fa;
+  }
+
+  .scrollable_section_title {
+    font-size: 4vw;
+    margin-bottom: 1vmax;
+  }
+
+  .scrollable_card {
+    width: 40vw;
+  }
+
+  .scrollable_cards_container {
+    margin-bottom: 0.1vmax;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+  }
+
+
+
+
+
+
+
+
+  /* About Us Section */
+  .mughader_last_section * {
+    font-size: 2vw;
+  }
+
+  .cta_text {
+    font-size: 3vw;
+  }
+
+  .email_subscription_form button {
+    padding: 0.5vmax 1vmax;
+    font-size: 3vw;
+  }
+
+  .email_subscription_form input {
+    width: 75%;
+    padding: 5px;
+    font-size: 3.5vw;
+  }
+
+
+
+
+
+
+  /* WhatsApp Code */
+  .whatsapp_icon_div {
+    font-size: 2.8vw;
+  }
+
+  .whatsapp_icon_div ion-icon {
+    font-size: 4vw;
+  }
+
+
+
+
+
+  /* Chat Sidebar */
+  #mughader_chat_sidebar {
+    width: 100vw;
+  }
+
+  /* Chatbot Icon */
+  #mughader_chatbot_icon {
+    width: 8vmax;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .mughader_desktop_nav {
     display: none;
@@ -1092,6 +1185,34 @@ footer * {
 
 
 
+
+
+  /* First Section Subtitle Styling */
+  .wow_subtitle {
+    font-size: 4.5vw;
+  }
+
+  .wow_location_icon {
+    margin-left: 0;
+    font-size: 9vw;
+  }
+
+  .wow_dynamic_word {
+    font-size: 5vw;
+  }
+
+  /* Timer Line */
+  .wow_timer_line {
+    height: 3px;
+  }
+
+
+
+
+
+
+
+
   /* Chat Sidebar */
   #mughader_chat_sidebar {
     width: 100vw;
@@ -1099,21 +1220,14 @@ footer * {
 
   /* Chatbot Icon */
   #mughader_chatbot_icon {
-    width: 7.5vmax;
+    width: 10vmax;
   }
 
 
 
 
 
-  /* WhatsApp Code */
-  .whatsapp_icon_div {
-    font-size: 1rem;
-  }
 
-  .whatsapp_icon_div ion-icon {
-    font-size: 1.5rem;
-  }
 
 
 
@@ -1156,13 +1270,15 @@ footer * {
 
 
 
-  .mughader_last_section * {
-    font-size: 0.8rem;
+
+  /* WhatsApp Code */
+  .whatsapp_icon_div {
+    font-size: 3vw;
   }
 
-
-
-
+  .whatsapp_icon_div ion-icon {
+    font-size: 4.2vw;
+  }
 
 
 
@@ -1194,6 +1310,11 @@ footer * {
   .email_subscription_form {
     flex-direction: column;
   }
+
+  /* Page Intro Section */
+  .wow_effect_section {
+    height: 40vh;
+  }
 }
 
 
@@ -1223,14 +1344,16 @@ footer * {
 
 
 
-  /* WHatsapp Code */
-  .whatsapp_icon_div {
-    font-size: 0.8rem;
+
+  /* Page Intro Section */
+  .wow_effect_section {
+    height: 35vh;
   }
 
-  .whatsapp_icon_div ion-icon {
-    font-size: 1rem;
+  .wow_glass_box {
+    width: 95vw;
   }
+
 
 
 
@@ -1272,13 +1395,44 @@ footer * {
 
 
 
-
-
-
-
-
-
+  /* About Us Section */
   .mughader_last_section * {
-    font-size: 0.6rem;
+    font-size: 2.8vw;
+  }
+
+  .cta_text {
+    font-size: 3.8vw;
+  }
+
+  .email_subscription_form button {
+    font-size: 4.5vw;
+  }
+
+  .email_subscription_form input {
+    font-size: 4.5vw;
+    padding: 2px 3px;
+  }
+
+
+
+
+
+
+
+  /* Customers Comments Section */
+  .mughader_comment_card {
+    min-width: 33vmax;
+  }
+
+
+
+
+  /* WhatsApp Code */
+  .whatsapp_icon_div {
+    font-size: 4vw;
+  }
+
+  .whatsapp_icon_div ion-icon {
+    font-size: 5vw;
   }
 }

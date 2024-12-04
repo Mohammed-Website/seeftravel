@@ -44,7 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
         "ماليزيا",
         "دبي",
         "مصر",
-        "الجبل الأسود"
+        "الجبل الأسود",
+        "ياس ايلاند",
+        "اسطنبول",
+        "الدوحة",
     ];
 
     let currentIndex = 1;
