@@ -18,7 +18,9 @@ body {
   background: white;
 }
 
-
+html {
+  scroll-behavior: smooth;
+}
 
 
 
