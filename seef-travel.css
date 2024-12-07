@@ -258,7 +258,14 @@ html {
 header {
   background: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: transform 0.3s ease-in-out;
+}
+
+header.hidden {
+  transform: translateY(-100%);
 }
 
 .mughader_header_container {
@@ -569,8 +576,6 @@ header {
   text-align: right;
   margin-bottom: 15px;
   color: #333;
-  position: sticky;
-  top: 0;
   z-index: 10;
   padding: 10px 5px 10px 0;
   border-top-right-radius: 7px;

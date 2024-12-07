@@ -28,6 +28,30 @@ function closeSidebar() {
 
 
 
+const header = document.getElementById('mughader_header');
+let lastScrollPosition = 0;
+
+window.addEventListener('scroll', () => {
+    const currentScrollPosition = window.scrollY;
+
+    if (currentScrollPosition > lastScrollPosition) {
+        // Scrolling down
+        header.classList.add('hidden');
+    } else {
+        // Scrolling up
+        header.classList.remove('hidden');
+    }
+
+    lastScrollPosition = currentScrollPosition;
+});
+
+
+
+
+
+
+
+
 /* Switching words functionality */
 document.addEventListener("DOMContentLoaded", function () {
     const words = [
@@ -446,7 +470,7 @@ function openFullScreenImage(src, text) {
         fullScreenDiv.classList.remove('visible'); // Trigger fade-out
         setTimeout(() => fullScreenDiv.remove(), 300); // Remove element after fade-out
 
-        
+
         document.body.style.overflow = ''; // Re-enable document scrolling
     }
 }
