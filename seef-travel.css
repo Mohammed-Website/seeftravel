@@ -747,7 +747,7 @@ header.hidden {
   color: white;
   text-decoration: none;
   font-size: 18px;
-  padding: 12px 24px;
+  padding: 1vmin 2vmin;
   border-radius: 5px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   transition: 0.3s ease;
@@ -1237,7 +1237,7 @@ footer * {
   .full_screen_container {
     flex-direction: column;
     justify-content: center;
-    padding: 20px;
+    padding: 20px 0;
     gap: 15px;
   }
 
@@ -1250,12 +1250,19 @@ footer * {
   }
 
   .full_screen_image {
-    max-width: 90%;
+    max-width: 95vw;
     max-height: 50vh;
   }
 
   .exit_button {
+    width: fit-content;
+    padding: 2px 10px;
+    margin-right: 10px;
     margin-bottom: 10px;
+  }
+
+  .whatsapp_button {
+    width: auto;
   }
 
 
